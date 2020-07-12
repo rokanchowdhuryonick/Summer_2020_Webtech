@@ -1,0 +1,23 @@
+<admission>
+	<student>
+		<id>23</id>
+		<name>John Carter</name>
+		<admission_day>25</admission_day>
+		<admission_month>12</admission_month>
+		<admission_year>2015</admission_year>
+	</student>
+	<student>
+		<id>29</id>
+		<name>Bob Marshal</name>
+		<admission_dau>13</admission_day>
+		<admission_month>01</admission_month>
+		<admission_year>1999</admission_year>
+	</student>
+	<student>
+		<id>35</id>
+		<name>Clark Kent</name>
+		<admission_day>17</admission_day>
+		<admission_month>06</admission_month>
+		<admission_year>2005</admission_year>
+	</student>
+</admission>
