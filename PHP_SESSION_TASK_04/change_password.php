@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['uset']) && !isset($_SESSION['status'])) {
+if (!isset($_SESSION['user']) || !isset($_SESSION['status'])) {
     header('location:login.php');
     exit();
 }
@@ -28,7 +28,7 @@ if (isset($_POST['save'])) {
 </head>
 <body>
     <br><br>
-    <center><?php if(!empty($error))echo $error; if(isset($success)) echo $success; ?></center>
+    <center><?php if(!empty($error))echo $error; if(!empty($success)) echo $success; ?></center>
     <br>
     <form action="" method="post">
     <table border="1" align="center" width="60%">

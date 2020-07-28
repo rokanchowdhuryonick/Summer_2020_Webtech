@@ -30,7 +30,6 @@ if (isset($_POST['submit'])) {
 		setcookie('email', $email, time() + (86400 * 30), "/");
 		setcookie('userName', $userName, time() + (86400 * 30), "/");
 		setcookie('password', $password, time() + (86400 * 30), "/");
-		setcookie('email', $email, time() + (86400 * 30), "/");
 		setcookie('gender', $gender, time() + (86400 * 30), "/");
 		setcookie('day', $day, time() + (86400 * 30), "/");
 		setcookie('month', $month, time() + (86400 * 30), "/");
@@ -109,9 +108,9 @@ header('Location: login.php');
 							<td colspan="3">
 								<fieldset>
 									<legend>Gender</legend>    
-									<input name="gender" type="radio">Male
-									<input name="gender" type="radio">Female
-									<input name="gender" type="radio">Other
+									<input name="gender" type="radio" value="Male">Male
+									<input name="gender" type="radio" value="Female">Female
+									<input name="gender" type="radio" value="Other">Other
 								</fieldset>
 							</td>
 							<td></td>
