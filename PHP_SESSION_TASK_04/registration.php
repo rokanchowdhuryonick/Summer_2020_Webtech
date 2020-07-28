@@ -35,6 +35,7 @@ if (isset($_POST['submit'])) {
 		setcookie('day', $day, time() + (86400 * 30), "/");
 		setcookie('month', $month, time() + (86400 * 30), "/");
 		setcookie('year', $year, time() + (86400 * 30), "/");
+		$_SESSION['success'] = 'Registration success..';
 header('Location: login.php');
 	}
 }
@@ -48,7 +49,7 @@ header('Location: login.php');
 </head>
 <body>
 	<br><br>
-	<center><?php if(!empty($error))echo $error;?></center>
+	<center><?php if(!empty($error))echo $error;?></center><br>
 	<table border="1" align="center" width="60%">
 		<tr>
 			<td align="center">
