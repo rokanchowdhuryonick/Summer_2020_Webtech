@@ -30,7 +30,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['status'])) {
 			 	<li><a href="dashboard.php">Dashboard</a></li>
 			 	<li><a href="profile.php">View Profile</a></li>
 			 	<li><a href="edit_profile.php">Edit Profile</a></li>
-			 	<li><a href="change_picture.php">Change Profile Picture</a></li>
+			 	<li><a href="picture.php">Change Profile Picture</a></li>
 			 	<li><a href="change_password.php">Change Password</a></li>
 			 	<li><a href="logout.php">Logout</a></li>
 			 </ul>
@@ -46,7 +46,7 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['status'])) {
 								<td>:</td>
 								<td><?=$_COOKIE['name']?></td>
 								<td rowspan="7" align="center">
-									<img width="128" src="<?=$_COOKIE['image']?>"/>
+									<img border="1" width="128" alt="Rokan's Picture" src="<?php if(isset($_COOKIE['image']))echo $_COOKIE['image']; ?>"/>
 				                    <br/>
 				                    <a href="picture.php">Change</a>
 								</td>
