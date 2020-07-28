@@ -1,3 +1,46 @@
+<?php
+session_start();
+$error = "";
+if (isset($_POST['submit'])) {
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$userName =$_POST['userName'];
+	$password = $_POST['password'];
+	$confirmPassword = $_POST['confirmPassword'];
+	$gender = @$_POST['gender'];
+	$day = $_POST['dd'];
+	$month= $_POST['mm'];
+	$year = $_POST['yyyy'];
+	if (empty($name) || empty($email) ||  empty($userName) ||  empty($password) || empty($gender) || empty($day) || empty($month) || empty($year)){
+		$error = "Required field is empty";
+	}else if ($password !=$confirmPassword) {
+		$error = "Two password not matched";
+	}else{
+		$user = [
+			'userName'=>$userName,
+			'email'=>$email,
+			'password'=>$password
+		];
+		$_SESSION['userName'] 		= $uname;
+		$_SESSION['email'] 		= $email;
+		$_SESSION['password'] 	= $password;
+		$_SESSION['user'] 		= $user;
+
+		setcookie('name', $name, time() + (86400 * 30), "/");
+		setcookie('email', $email, time() + (86400 * 30), "/");
+		setcookie('userName', $userName, time() + (86400 * 30), "/");
+		setcookie('password', $password, time() + (86400 * 30), "/");
+		setcookie('email', $email, time() + (86400 * 30), "/");
+		setcookie('gender', $gender, time() + (86400 * 30), "/");
+		setcookie('day', $day, time() + (86400 * 30), "/");
+		setcookie('month', $month, time() + (86400 * 30), "/");
+		setcookie('year', $year, time() + (86400 * 30), "/");
+header('Location: login.php');
+	}
+}
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +48,7 @@
 </head>
 <body>
 	<br><br>
+	<center><?php if(!empty($error))echo $error;?></center>
 	<table border="1" align="center" width="60%">
 		<tr>
 			<td align="center">
@@ -19,7 +63,7 @@
 			<td colspan="2">
 			<fieldset>
 			    <legend><b>REGISTRATION</b></legend>
-				<form>
+				<form action="" method="post">
 					<br/>
 					<table width="100%" cellpadding="0" cellspacing="0">
 						<tr>
@@ -76,9 +120,9 @@
 							<td colspan="3">
 								<fieldset>
 									<legend>Date of Birth</legend>    
-									<input type="text" size="2" />/
-									<input type="text" size="2" />/
-									<input type="text" size="4" />
+									<input type="text" size="2" name="dd" />/
+									<input type="text" size="2"  name="mm"/>/
+									<input type="text" size="4"  name="yyyy"/>
 									<font size="2"><i>(dd/mm/yyyy)</i></font>
 								</fieldset>
 							</td>
@@ -86,11 +130,11 @@
 						</tr>
 					</table>
 					<hr/>
-					<input type="submit" value="Submit">
+					<input type="submit" name="submit" value="Submit">
 					<input type="reset">
 				</form>
 			</fieldset>
-			
+
 			</td>
 		</tr>
 		<tr>
