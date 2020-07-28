@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_SESSION['user']) && isset($_SESSION['status'])) {
+	header('location:dashboard.php');
+	exit();
+}
 if (isset($_POST['login'])) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
