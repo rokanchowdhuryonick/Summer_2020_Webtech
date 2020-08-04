@@ -10,22 +10,32 @@ if (isset($_POST['login'])) {
 	if (empty($userId) || empty($password)) {
 		$error = "Required field is empty";
 	}else if (file_exists("users.txt") && filesize("users.txt")) {
-		while(!feof($data)){
+		if ($file = fopen('users.txt', 'r')) {	
+			$data = fread($file, filesize('users.txt'));
+			while(!feof($data)){
 				$user = fgets($data);
 				$user = explode('|', $data);
+				if (trim($user[0])==$userId && trim($user[1])==$password) {
+					$_SESSION['userId'] = $user[0];
+					$_SESSION['password'] = $user[1];
+					$_SESSION['name'] = $user[2];
+					$_SESSION['email'] = $user[3];
+					$_SESSION['userType'] = $user[4];
+				}
 			}
 			if (isset($_POST['save'])) {
-				setcookie('userName', $userName, time() + (86400 * 30), "/");
+				setcookie('userId', $userName, time() + (86400 * 30), "/");
 				setcookie('password', $password, time() + (86400 * 30), "/");
 			}else{
-				unset($_COOKIE['userName']);
+				unset($_COOKIE['userId']);
 				unset($_COOKIE['password']);
 			}
 
 			$_SESSION['status'] = 1;
 			header('location:dashboard.php');
+		}
 	}else{
-		$error="There is no user exists!";
+		$error="There is no user exists in database!";
 	}
 }
 
