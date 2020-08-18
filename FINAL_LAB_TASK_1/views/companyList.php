@@ -40,20 +40,24 @@
 						<td>ID</td>
 						<td>Company Name</td>
 						<td>Description</td>
-						<td>Email</td>
-						<td>Type</td>
+						<td>Industry</td>
+						<td>Website</td>
+						<td>Logo</td>
+						<td>User ID</td>
 						<td>Action</td>
 					</tr>
 
 					<?php  
-						$users = getAllUser();
-						for ($i=0; $i != count($users); $i++) {  ?>
+						$company = getAllCompany();
+						for ($i=0; $i != count($company); $i++) {  ?>
 					<tr>
-						<td><?=$users[$i]['id']?></td>
-						<td><?=$users[$i]['username']?></td>
-						<td><?=$users[$i]['password']?></td>
-						<td><?=$users[$i]['email']?></td>
-						<td><?=$users[$i]['userType']?></td>
+						<td><?=$company[$i]['id']?></td>
+						<td><?=$company[$i]['company_name']?></td>
+						<td><?=$company[$i]['profile_description']?></td>
+						<td><?=$company[$i]['industry']?></td>
+						<td><?=$company[$i]['company_website']?></td>
+						<td><img height="50%" src="<?=$company[$i]['company_logo']?>"></td>
+						<td><?=$company[$i]['user_account_id']?></td>
 						<td>
 							<a href="edit.php?id=<?=$users[$i]['id']?>">Edit</a> |
 							<a href="../php/delete.php?id=<?=$users[$i]['id']?>">Delete</a> 

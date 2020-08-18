@@ -53,7 +53,7 @@
 	function uploadLogo($company){
 		$filedir = '../views/images/company/'.$company['companyName'].'.jpg';
 		if(move_uploaded_file($company['logo']['tmp_name'], $filedir)){
-			$filedir = 'views/images/company/'.$company['companyName'].'.jpg';
+			$filedir = 'images/company/'.$company['companyName'].'.jpg';
 			return $filedir;
 		}else{
 			return "";
