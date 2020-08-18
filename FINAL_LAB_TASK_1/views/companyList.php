@@ -28,7 +28,9 @@
 				}
 
 				if (isset($_GET['success'])) {
-					
+					if($_GET['success'] == 'update_done'){
+						echo "Successfully updated!";
+					}
 					if($_GET['success'] == 'delete_done'){
 						echo "Successfully Deleted";
 					}
@@ -59,8 +61,8 @@
 						<td><img height="50%" src="<?=$company[$i]['company_logo']?>"></td>
 						<td><?=$company[$i]['user_account_id']?></td>
 						<td>
-							<a href="edit.php?id=<?=$users[$i]['id']?>">Edit</a> |
-							<a href="../php/delete.php?id=<?=$users[$i]['id']?>">Delete</a> 
+							<a href="editCompany.php?id=<?=$company[$i]['id']?>">Edit</a> |
+							<a href="../php/deleteCompany.php?id=<?=$company[$i]['id']?>">Delete</a> 
 						</td>
 					</tr>
 

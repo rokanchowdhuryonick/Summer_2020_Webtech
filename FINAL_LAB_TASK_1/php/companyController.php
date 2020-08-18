@@ -11,7 +11,7 @@
 		$website = $_POST['website'];
 		$logo = $_FILES['logo'];
 
-		if(empty($companyName) || empty($description) || empty($industry) || empty($website) || empty($logo)){
+		if(empty($companyName) || empty($description) || empty($industry) || empty($website) || empty($logo['name'])){
 			header('location: ../views/addCompany.php?error=null_value');
 		}else{
 
@@ -36,28 +36,31 @@
 	//update company
 	if(isset($_POST['editCompany'])){
 
-		$username 	= $_POST['username'];
-		$password 	= $_POST['password'];
-		$email 		= $_POST['email'];
-		$id 		= $_POST['id'];
+		$companyName 	= $_POST['companyName'];
+		$description 	= $_POST['description'];
+		$industry = $_POST['industry'];
+		$website = $_POST['website'];
+		$logo = $_FILES['logo'];
+		$id = $_POST['id'];
 
-		if(empty($username) || empty($password) || empty($email)){
-			header('location: ../views/edit.php?id={$id}');
+		if(empty($companyName) || empty($description) || empty($industry) || empty($website)){
+			header('location: ../views/editCompany.php?error=null_value&id={$id}');
 		}else{
 
-			$user = [
-				'username'=> $username,
-				'password'=> $password,
-				'email'=> $email,
-				'id'=> $id
+			$company = [
+				'companyName'=> $companyName,
+				'description'=> $description,
+				'industry'=> $industry,
+				'website'=> $website,
+				'logo'=> $logo,
+				'id'=>$id
 			];
-
-			$status = update($user);
+			$status = updateCompany($company);
 
 			if($status){
-				header('location: ../views/all_users.php?success=done');
+				header('location: ../views/companyList.php?success=update_done');
 			}else{
-				header('location: ../views/edit.php?id={$id}');
+				header('location: ../views/editCompany.php?error=db_error&id={$id}');
 			}
 		}
 	}

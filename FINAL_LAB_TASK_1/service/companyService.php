@@ -67,8 +67,14 @@
 			echo "DB connection error";
 		}
 
-		$sql = "update company set company_name='{$company['companyName']}', profile_description='{$company['description']}', industry='{$company['industry']}', company_website='{$company['website']}', company_logo='{$company['logo']}' where id={$company['id']}";
+		if (!empty($company['logo']['name'])) {
+			$logoUrl = uploadLogo($company);
+			$sql = "update company set company_name='{$company['companyName']}', profile_description='{$company['description']}', industry='{$company['industry']}', company_website='{$company['website']}', company_logo='{$logoUrl}' where id={$company['id']}";
+		}else{
+			$sql = "update company set company_name='{$company['companyName']}', profile_description='{$company['description']}', industry='{$company['industry']}', company_website='{$company['website']}' where id={$company['id']}";
 
+		}
+		//exit($sql);
 		if(mysqli_query($conn, $sql)){
 			return true;
 		}else{
