@@ -1,6 +1,6 @@
 <?php
 	require_once('../php/session_header.php');
-	require_once('../service/userService.php');
+	require_once('../service/companyService.php');
 	
 ?>
 
@@ -34,12 +34,12 @@
 					}
 				}
 				?>
-				<h3>User list</h3>
+				<h3>Company list</h3>
 				<table border="1" cellpadding="8">
 					<tr>
 						<td>ID</td>
-						<td>Username</td>
-						<td>Password</td>
+						<td>Company Name</td>
+						<td>Description</td>
 						<td>Email</td>
 						<td>Type</td>
 						<td>Action</td>

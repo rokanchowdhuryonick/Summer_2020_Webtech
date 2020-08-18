@@ -8,9 +8,18 @@
 	<title>Home</title>
 </head>
 <body>
-	<h1>Welcome Home!<?=$_SESSION['username']?></h1> 
-	<a href="../views/create.php">Create New User</a> |
-	<a href="../views/all_users.php">User List</a> |
-	<a href="../php/logout.php">Logout</a> 
+	<table width="100%" border="1">
+		<tr>
+			<td>
+				<?php require_once 'includes/main_menu.php'; ?>
+			</td>
+		</tr>
+		<tr height="300px">
+			<td align="center">
+				<h1>Welcome Home! <?=$_SESSION['username']?></h1> 
+			</td>
+		</tr>
+	</table>
+	 
 </body>
 </html>

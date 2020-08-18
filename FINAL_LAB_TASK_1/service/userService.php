@@ -45,6 +45,8 @@
 		$user = mysqli_fetch_assoc($result);
 
 		if(count($user) > 0 ){
+			session_start();
+			$_SESSION['userId'] = $user['id'];
 			return true;
 		}else{
 			return false;
