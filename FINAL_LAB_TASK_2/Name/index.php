@@ -5,6 +5,11 @@
 	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
+	<?php
+	if (isset($_POST['submit'])) {
+		echo "Your Submitted value is: <b>". $_POST['name']."</b>";
+	}
+	?>
 	<form method="post" action="" onsubmit="return validateName()">
 		<table>
 			<tr>
