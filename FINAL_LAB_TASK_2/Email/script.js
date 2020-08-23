@@ -7,10 +7,12 @@ function validateEmail() {
 	}else if (!emailBreakdown(email)) {
 		document.getElementById('message').innerHTML = "*Must be a valid email address (i.e anything@example.com)!";
 		return false;
+	}else{
+		document.getElementById('message').innerHTML = "";
+		return true;
 	}
-	document.getElementById('message').innerHTML = "";	
 
-	return false;
+	return true;
 }
 
 function emailBreakdown(email) {

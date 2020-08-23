@@ -21,11 +21,6 @@
 				<td></td>
 				<td colspan="2"> <input type="submit" name="submit" value="Submit"></td>
 			</tr>
-			<tr>
-				<td colspan="4">
-					<span id="dump"></span>
-				</td>
-			</tr>
 		</table>
 	</form>
 
