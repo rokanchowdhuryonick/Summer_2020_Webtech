@@ -10,7 +10,7 @@
 		echo "Your Submitted Blood Group is: <b>". $_POST['blood']."</b>";
 	}
 	?>
-	<form method="post" action="" onsubmit="return validateGender()">
+	<form method="post" action="" onsubmit="return validateBlood()">
 		<table>
 			<tr>
 				<td>Blood Group : </td>
