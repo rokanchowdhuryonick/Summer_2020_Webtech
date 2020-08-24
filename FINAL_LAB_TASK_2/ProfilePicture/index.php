@@ -7,11 +7,11 @@
 <body>
 	<?php
 	if (isset($_POST['submit'])) {
-		echo "Your Submitted User ID is: <b>". $_POST['userid']."</b>";
+		echo "Your Submitted User ID is: <b>". $_POST['userid']."</b><br>";
 		echo "Your Submitted Photo Name is: <b>". $_FILES['photo']['name']."</b>";
 	}
 	?>
-	<form method="post" action="" onsubmit="return validateProfilePicture()">
+	<form method="post" action="" onsubmit="return validateProfilePicture()"  enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>User ID : </td>
