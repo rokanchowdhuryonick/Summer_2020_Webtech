@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Gender Validation | Rokan</title>
+	<title>Birthday Validation | Rokan</title>
 	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
@@ -10,7 +10,7 @@
 		echo "Your Submitted Date of Birth is: <b>". $_POST['day']."/".$_POST['month']."/".$_POST['year']."</b>";
 	}
 	?>
-	<form method="post" action="" onsubmit="return validateGender()">
+	<form method="post" action="" onsubmit="return validateDob()">
 		<table>
 			<tr>
 				<td>Date of Birth : </td>
