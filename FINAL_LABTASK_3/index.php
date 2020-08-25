@@ -36,9 +36,9 @@
 					Date of Birth
 				</td>
 				<td>
-					<input type="" name="dd" size="1" id="date">/ <input type="" name="mm"  size="1" id="month">/ <input type="" name="yy"  size="2" id="year"> <i>(dd/mm/yyyy)</i>
+					<input type="" name="dd" size="1" id="day" onblur="validateDob()">/ <input type="" name="mm"  size="1" id="month"  onblur="validateDob()">/ <input type="" name="yy"  size="2" id="year" onblur="validateDob()"> <i>(dd/mm/yyyy)</i>
 				</td>
-				<td></td>
+				<td><span id="birthdayErr"></span></td>
 			</tr>
 			<tr>
 				<td>Blood Group</td>
