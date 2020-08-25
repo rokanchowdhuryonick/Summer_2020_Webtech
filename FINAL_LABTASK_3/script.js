@@ -1,16 +1,11 @@
 function validateRegistration() {
-	var checkName=0;
-	var checkEmail=0;
-	var checkName=0;
-	var checkName=0;
-	var checkName=0;
-	var checkName=0;
-	if (!validateName() && !validateEmail()) {
+
+	if (!validateName() || !validateEmail() || !validateGender()) {
 		return false;
 	}
 
 
-	return false;
+	return true;
 }
 
 
@@ -88,4 +83,17 @@ function emailBreakdown(email) {
     }
     return true;
 }
+
+//For Gender
+function validateGender() {
+	var gender = document.getElementById('gender').checked;
+	document.getElementById('genderErr').style="color:brown";
+	if (gender!=true) {
+		document.getElementById('genderErr').innerHTML = "*At least one of them has to be selected!";
+		return false;
+	}
+	document.getElementById('genderErr').innerHTML = "";
+	return true;
+}
+
 
