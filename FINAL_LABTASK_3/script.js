@@ -1,6 +1,6 @@
 function validateRegistration() {
 
-	if (!validateName() || !validateEmail() || !validateGender() || !validateEmail() || !validateDob() || !validateBlood()) {
+	if (!validateName() || !validateEmail() || !validateGender() || !validateEmail() || !validateDob() || !validateBlood() || !validateDegree()) {
 		return false;
 	}
 
@@ -143,3 +143,27 @@ function validateBlood() {
 	return true;
 }
 
+
+//For Degree
+function validateDegree() {
+	var degree = document.getElementsByName('degree[]');
+	document.getElementById('degreeErr').style="color:brown";
+
+	if (!checkedTrack(degree)) {
+		document.getElementById('degreeErr').innerHTML = "*At least one of them has to be selected!";
+		return false;
+	}
+	document.getElementById('degreeErr').innerHTML = "";
+	return true;
+}
+
+function checkedTrack(d) {
+	for (var i = 0; i < d.length; i++) {
+		if (d[i].checked==true) {
+			return true;
+		}else{
+			continue;
+		}
+	}
+	return false;
+}

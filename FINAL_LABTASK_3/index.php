@@ -58,14 +58,14 @@
 			<tr>
 				<td>Degree</td>
 				<td>
-					<input type="checkbox" value="SSC" name="degree">SSC <input type="checkbox" name="degree" value="HSC">HSC <input type="checkbox" name="degree" value="BSc">BSc. <input type="checkbox" name="degree" value="MSc">MSc.
+					<input type="checkbox" value="SSC" name="degree[]">SSC <input type="checkbox" name="degree[]" value="HSC">HSC <input type="checkbox" name="degree" value="BSc">BSc. <input type="checkbox" name="degree[]" value="MSc">MSc.
 				</td>
-				<td></td>
+				<td><span id="degreeErr"></span></td>
 			</tr>
 			<tr>
 				<td>Photo</td>
 				<td><input type="file" name="photo" id="photo"></td>
-				<td></td>
+				<td><span id="photoErr"></span></td>
 			</tr>
 			<tr>
 				<td colspan="3"><br></td>
