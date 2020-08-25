@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Registration | Rokan Chowdhury Onick</title>
+	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 	<center><h2>Registration Zone</h2></center>
