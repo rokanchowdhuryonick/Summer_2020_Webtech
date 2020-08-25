@@ -1,6 +1,6 @@
 function validateRegistration() {
 
-	if (!validateName() || !validateEmail() || !validateGender() || !validateEmail() || !validateDob() || !validateBlood() || !validateDegree()) {
+	if (!validateName() || !validateEmail() || !validateGender() || !validateEmail() || !validateDob() || !validateBlood() || !validateDegree() || !validateProfilePicture()) {
 		return false;
 	}
 
@@ -166,4 +166,18 @@ function checkedTrack(d) {
 		}
 	}
 	return false;
+}
+
+
+//For Photo
+function validateProfilePicture() {
+	var photo = document.getElementById('photo').files;
+	document.getElementById('photoErr').style="color:brown";
+	if (photo.length==0) {
+		document.getElementById('photoErr').innerHTML = "*<b>Picture</b> cannot be empty!";
+		return false;
+	}
+	document.getElementById('photoErr').innerHTML = "";
+
+	return true;
 }

@@ -7,6 +7,12 @@
 <body>
 	<center><h2>Registration Zone</h2></center>
 	<hr>
+	<?php
+
+	if (isset($_POST['submit'])) {
+		# code...
+	}
+	?>
 	<form action="" method="post" onsubmit="return validateRegistration()" enctype="multipart/form-data">
 		<table align="center" border="1" cellpadding="5px" width="70%">
 			<tr height="80px">
