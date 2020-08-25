@@ -10,7 +10,18 @@
 	<?php
 
 	if (isset($_POST['submit'])) {
-		# code...
+		echo "Name: <b>". $_POST['name']."</b><br>";
+		echo "Email: <b>". $_POST['email']."</b><br>";
+		echo "Gender: <b>". $_POST['gender']."</b><br>";
+		echo "Birthday: <b>". $_POST['dd']."/".$_POST['mm']."/".$_POST['yy']."</b><br>";
+		echo "Blood Group: <b>". $_POST['blood']."</b><br>";
+		echo "Your Submitted Degree is: <br><b>";
+		$i=0;
+		foreach ($_POST['degree'] as $value) {
+			echo " &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;".++$i.". {$value}<br>";
+		}
+		echo "</b>";
+		echo "Your Submitted Photo Name is: <b>". $_FILES['photo']['name']."</b><br>";
 	}
 	?>
 	<form action="" method="post" onsubmit="return validateRegistration()" enctype="multipart/form-data">
@@ -49,7 +60,7 @@
 			<tr>
 				<td>Blood Group</td>
 				<td>
-					<select name="blood" id="blood">
+					<select name="blood" id="blood" onchange="validateBlood()">
 						<option value="-1">Select Blood Group</option>
 						<option>A+</option>
 						<option>A-</option>
