@@ -1,11 +1,20 @@
 function validateRegistration() {
-	if (!validateName()) {
+	var checkName=0;
+	var checkEmail=0;
+	var checkName=0;
+	var checkName=0;
+	var checkName=0;
+	var checkName=0;
+	if (!validateName() && !validateEmail()) {
 		return false;
 	}
+
 
 	return false;
 }
 
+
+//For Name
 function validateName() {
 	var name = document.getElementById('name').value.trim();
 	document.getElementById('nameErr').style="color:brown";
@@ -25,6 +34,7 @@ function validateName() {
 		return false
 	}
 
+	document.getElementById('nameErr').innerHTML = "";
 	return true;
 }
 
@@ -40,10 +50,42 @@ function checkEveryChar(val) {
 		}else{
 			return false;
 		}
-		 //datas+= val[i] + "<br>";
+
 	}
 
-	//document.getElementById('dump').innerHTML = datas;
 	
 	return true;
 }
+
+
+//For Email
+function validateEmail() {
+	var email = document.getElementById('email').value.trim();
+	document.getElementById('emailErr').style="color:brown";
+	if (email.length<=0) {
+		document.getElementById('emailErr').innerHTML = "*Can not be empty!";
+		return false;
+	}else if (!emailBreakdown(email)) {
+		document.getElementById('emailErr').innerHTML = "*Must be a valid email address (i.e anything@example.com)!";
+		return false;
+	}else{
+		document.getElementById('emailErr').innerHTML = "";
+		return true;
+	}
+
+	return true;
+}
+
+function emailBreakdown(email) {
+	if (email.toString().indexOf("@") == -1) {
+        return false;
+    }
+    var div = email.split("@");
+    var dot = div[1].indexOf(".");
+    var countdot = div[1].split(".").length-1;
+    if (dot == -1 || countdot > 2) {
+        return false;
+    }
+    return true;
+}
+

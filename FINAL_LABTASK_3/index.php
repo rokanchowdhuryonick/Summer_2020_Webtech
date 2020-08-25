@@ -14,12 +14,12 @@
 			</tr>
 			<tr>
 				<td>Name</td>
-				<td><input type="text" name="name" id="name"></td>
+				<td><input type="text" name="name" id="name" onblur="return validateName()"></td>
 				<td><span id="nameErr"></span></td>
 			</tr>
 			<tr>
 				<td>Email</td>
-				<td><input type="text" name="email" id="email"></td>
+				<td><input type="text" name="email" id="email" onblur="return validateEmail()"></td>
 				<td><span id="emailErr"></span></td>
 			</tr>
 			<tr>
