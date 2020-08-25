@@ -44,6 +44,7 @@
 				<td>Blood Group</td>
 				<td>
 					<select name="blood" id="blood">
+						<option value="-1">Select Blood Group</option>
 						<option>A+</option>
 						<option>A-</option>
 						<option>B+</option>
@@ -52,7 +53,7 @@
 						<option>O-</option>
 					</select>
 				</td>
-				<td></td>
+				<td><span id="bloodErr"></span></td>
 			</tr>
 			<tr>
 				<td>Degree</td>

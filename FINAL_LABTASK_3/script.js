@@ -1,6 +1,6 @@
 function validateRegistration() {
 
-	if (!validateName() || !validateEmail() || !validateGender()) {
+	if (!validateName() || !validateEmail() || !validateGender() || !validateEmail() || !validateDob() || !validateBlood()) {
 		return false;
 	}
 
@@ -116,8 +116,6 @@ function validateDob() {
 
 	return true;
 }
-
-
 function validateNumber(d,m,y) {
 	if (!Number.isInteger(parseInt(d)) || !Number.isInteger(parseInt(m)) || !Number.isInteger(parseInt(y))) {
 		return false;
@@ -130,3 +128,18 @@ function validateNumber(d,m,y) {
 	}
 	return true;
 }
+
+
+//For Blood
+function validateBlood() {
+	var blood = document.getElementById('blood').value;
+	document.getElementById('bloodErr').style="color:brown";
+
+	if (blood==-1) {
+		document.getElementById('bloodErr').innerHTML = "*Must be selected!";
+		return false;
+	}
+	document.getElementById('bloodErr').innerHTML = "";
+	return true;
+}
+
