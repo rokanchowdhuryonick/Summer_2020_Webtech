@@ -8,19 +8,19 @@
 	<center><h2>Registration Zone</h2></center>
 	<hr>
 	<form action="" method="post" onsubmit="return validateRegistration()" enctype="multipart/form-data">
-		<table align="center" border="1" cellpadding="5px" width="50%">
+		<table align="center" border="1" cellpadding="5px" width="70%">
 			<tr height="80px">
 				<th colspan="3">PERSON PROFILE</th>
 			</tr>
 			<tr>
 				<td>Name</td>
 				<td><input type="text" name="name" id="name"></td>
-				<td></td>
+				<td><span id="nameErr"></span></td>
 			</tr>
 			<tr>
 				<td>Email</td>
 				<td><input type="text" name="email" id="email"></td>
-				<td></td>
+				<td><span id="emailErr"></span></td>
 			</tr>
 			<tr>
 				<td>Gender</td>
@@ -29,7 +29,7 @@
 					<input type="radio" name="gender" id="gender"> Female
 					<input type="radio" name="gender" id="gender"> Other
 				</td>
-				<td></td>
+				<td><span id="genderErr"></span></td>
 			</tr>
 			<tr>
 				<td>
