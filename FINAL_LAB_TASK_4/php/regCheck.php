@@ -8,10 +8,10 @@
 		$password 	= $_POST['password'];
 		$email 		= $_POST['email'];
 
-		if(empty($username) || empty($password) || empty($email)){
-			echo "Required filed is empty";
-			//header('location: ../views/register.php?error=null_value');
-		}else{
+		// if(empty($username) || empty($password) || empty($email)){
+		// 	echo "Required filed is empty";
+		// 	//header('location: ../views/register.php?error=null_value');
+		// }else{
 
 			$user = [
 				'username'=> $username,
@@ -23,12 +23,12 @@
 
 			if($status){
 				//header('location: ../views/login.php?success=registration_done');
-				echo "Registration Done";
+				echo json_encode(array('success'=>true,'message'=>"Registration Done"));
 			}else{
-				echo "Registration Failed";
+				echo json_encode(array('success'=>false,'message'=>"Registration Failed"));
 				//header('location: ../views/register.php?error=db_error');
 			}
-		}
+		//}
 	//}
 
 

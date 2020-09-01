@@ -85,10 +85,10 @@
 	 		var username = document.getElementById('username').value;
 	 		var email = document.getElementById('email').value;
 	 		var password = document.getElementById('password').value;
-	 		// if ((username.length<=0) || (email.length<=0) || (password.length<=0)) {
-	 		// 	document.getElementById('message').innerHTML = "Required filed is empty";
-	 		// }else{
-	 			//document.getElementById('message').innerHTML = " ";
+	 		if ((username.length<=0) || (email.length<=0) || (password.length<=0)) {
+	 			document.getElementById('message').innerHTML = "Required filed is empty";
+	 		}else{
+	 			document.getElementById('message').innerHTML = " ";
 	 			var xhttp = new XMLHttpRequest();
 	 			xhttp.open('POST', '../php/regCheck.php', true);
 	 			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -96,9 +96,15 @@
 			    xhttp.onreadystatechange = function() {
 			      if(this.readyState == 4 && this.status == 200){
 						if(this.responseText != ""){
-							//alert(2);
-							document.getElementById('message').innerHTML = this.responseText;
-							document.getElementById('login').style.display="inline";
+							//alert(this.responseText);
+							var datas = JSON.parse(this.responseText);
+							if (datas.success==true) {
+								document.getElementById('message').innerHTML = datas.message;
+								document.getElementById('login').style.display="inline";
+							}else{
+								document.getElementById('message').innerHTML = datas.message;
+							}
+							
 						}else{
 							//alert(2);
 							document.getElementById('message').innerHTML = " ";
@@ -106,7 +112,7 @@
 						
 					}
 			    }
-	 	//	}
+	 		}
 
 	 	}
 	 </script>
