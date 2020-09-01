@@ -70,7 +70,7 @@
 			    xhttp.onreadystatechange = function() {
 			      if(this.readyState == 4 && this.status == 200){
 						if(this.responseText != ""){
-							alert(1);
+							//alert(1);
 							document.getElementById('error').innerHTML = this.responseText;
 						}else{
 							document.getElementById('error').innerHTML = " ";
@@ -88,7 +88,7 @@
 	 		// if ((username.length<=0) || (email.length<=0) || (password.length<=0)) {
 	 		// 	document.getElementById('message').innerHTML = "Required filed is empty";
 	 		// }else{
-	 			document.getElementById('message').innerHTML = " ";
+	 			//document.getElementById('message').innerHTML = " ";
 	 			var xhttp = new XMLHttpRequest();
 	 			xhttp.open('POST', '../php/regCheck.php', true);
 	 			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -96,9 +96,11 @@
 			    xhttp.onreadystatechange = function() {
 			      if(this.readyState == 4 && this.status == 200){
 						if(this.responseText != ""){
-							alert(2);
-							document.getElementById('message').innerHTML = this.responseText+200;
+							//alert(2);
+							document.getElementById('message').innerHTML = this.responseText;
+							document.getElementById('login').style.display="inline";
 						}else{
+							//alert(2);
 							document.getElementById('message').innerHTML = " ";
 						}
 						

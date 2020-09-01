@@ -2,7 +2,7 @@
 	session_start();
 	require_once('../service/userService.php');
 
-	if(isset($_POST['submit'])){
+	//if(isset($_POST['submit'])){
 
 		$username 	= $_POST['username'];
 		$password 	= $_POST['password'];
@@ -29,7 +29,7 @@
 				//header('location: ../views/register.php?error=db_error');
 			}
 		}
-	}
+	//}
 
 
 
