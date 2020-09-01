@@ -9,7 +9,8 @@
 		$email 		= $_POST['email'];
 
 		if(empty($username) || empty($password) || empty($email)){
-			header('location: ../views/register.php?error=null_value');
+			echo "Required filed is empty";
+			//header('location: ../views/register.php?error=null_value');
 		}else{
 
 			$user = [
@@ -21,9 +22,11 @@
 			$status = insert($user);
 
 			if($status){
-				header('location: ../views/login.php?success=registration_done');
+				//header('location: ../views/login.php?success=registration_done');
+				echo "Registration Done";
 			}else{
-				header('location: ../views/register.php?error=db_error');
+				echo "Registration Failed";
+				//header('location: ../views/register.php?error=db_error');
 			}
 		}
 	}

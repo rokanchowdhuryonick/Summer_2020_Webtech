@@ -63,7 +63,21 @@
 	 
 	 <script type="text/javascript">
 	 	function emailCheck(email) {
-	 		// body...
+	 		var xhttp = new XMLHttpRequest();
+	 			xhttp.open('POST', '../php/emailCheck.php', true);
+	 			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	 			xhttp.send("email="+email);
+			    xhttp.onreadystatechange = function() {
+			      if(this.readyState == 4 && this.status == 200){
+						if(this.responseText != ""){
+							alert(1);
+							document.getElementById('error').innerHTML = this.responseText;
+						}else{
+							document.getElementById('error').innerHTML = " ";
+						}
+						
+					}
+			    }
 	 	}
 
 	 	function regFormCheck() {
@@ -71,20 +85,26 @@
 	 		var username = document.getElementById('username').value;
 	 		var email = document.getElementById('email').value;
 	 		var password = document.getElementById('password').value;
-	 		if ((username.length<=0) || (email.length<=0) || (password.length<=0)) {
-	 			document.getElementById('message').innerHTML = "Required filed is empty";
-	 		}else{
-	 			document.getElementById('message').innerHTML = "";
+	 		// if ((username.length<=0) || (email.length<=0) || (password.length<=0)) {
+	 		// 	document.getElementById('message').innerHTML = "Required filed is empty";
+	 		// }else{
+	 			document.getElementById('message').innerHTML = " ";
 	 			var xhttp = new XMLHttpRequest();
 	 			xhttp.open('POST', '../php/regCheck.php', true);
 	 			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	 			xhttp.send("username="+username+"&password="+password+"&email="+email);
-			    xmlhttp.onreadystatechange = function() {
-			      if (this.readyState == 4 && this.status == 200) {
-			        document.getElementById("txtHint").innerHTML = this.responseText;
-			      }
-			    };
-	 		}
+			    xhttp.onreadystatechange = function() {
+			      if(this.readyState == 4 && this.status == 200){
+						if(this.responseText != ""){
+							alert(2);
+							document.getElementById('message').innerHTML = this.responseText+200;
+						}else{
+							document.getElementById('message').innerHTML = " ";
+						}
+						
+					}
+			    }
+	 	//	}
 
 	 	}
 	 </script>
