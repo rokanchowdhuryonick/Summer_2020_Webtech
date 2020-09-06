@@ -26,6 +26,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in']!=1 || $_SESSION['us
 			[<a href="addAuthor.php">Add Author</a>] [<a href="authorList.php">Author List</a>] [<a href="searchAuthor.php">Search Author</a>]
 
 			<?php }else if ($_SESSION['userType']=="author") { ?>
+				[<a href="addBlog.php">Add Blog</a>]
 				[<a href="blogList.php">Blog List</a>]
 			<?php } ?>
 			[<a href="../Controller/logout.php">Logout</a>]
