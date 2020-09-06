@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../DB/config.php';
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in']!=1) {
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in']!=1 || $_SESSION['userType']!="admin") {
 	header('location: ../Views/login.php');
 	exit();
 }
@@ -9,7 +9,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in']!=1) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>Add Author</title>
 </head>
 <body>
 <table width="100%" cellpadding="6">
@@ -20,7 +20,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in']!=1) {
 			?>
 			[<a href="addAuthor.php">Add Author</a>] [<a href="authorList.php">Author List</a>]
 
-			<?php}else{ ?>
+			<?php}else if ($_SESSION['userType']=="author") { ?>
 				[<a href="blogList.php">Blog List</a>]
 			<?php } ?>
 		</td>
