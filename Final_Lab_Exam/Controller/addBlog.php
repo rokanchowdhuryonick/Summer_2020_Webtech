@@ -1,14 +1,14 @@
 <?php
 session_start();
 require_once '../DB/config.php';
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in']!=1 || $_SESSION['userType']!="admin") {
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in']!=1 ) {
 	header('location: ../Views/login.php');
 	exit();
 }
 
 if (isset($_POST['addBlog'])) {
 	$title = $_POST['title'];
-	$blog = $_POST['blog'];
+	$blog = $_POST['details'];
 	if (empty($title) || empty($blog) ) {
 		$_SESSION['message'] = "<font color='brown'>Field can not be empty!</font><br>";
 		header('location:../Views/addBlog.php');
