@@ -57,7 +57,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in']!=1 || $_SESSION['us
 					<td><?=$row['phone']?></td>
 					<td><?=$row['username']?></td>
 					<td><?=$row['password']?></td>
-					<td>[<a href="editAuthor.php?id=<?=$row['id']?>">Edit</a>] | [<a href="deleteAuthor.php?id=<?=$row['id']?>">Delete</a>]</td>
+					<td>[<a href="editAuthor.php?id=<?=$row['id']?>">Edit</a>] | [<a href="../Controller/deleteAuthor.php?id=<?=$row['id']?>">Delete</a>]</td>
 				</tr>
 			<?php } ?>
 			</table>
