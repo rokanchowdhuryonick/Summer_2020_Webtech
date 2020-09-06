@@ -18,11 +18,12 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in']!=1) {
 			<?php
 			if ($_SESSION['userType']=="admin") {
 			?>
-			[<a href="addAuthor.php">Add Author</a>] [<a href="authorList.php">Author List</a>]
+			[<a href="addAuthor.php">Add Author</a>] [<a href="authorList.php">Author List</a>] [<a href="searchAuthor.php">Search Author</a>]
 
-			<?php}else{ ?>
+			<?php }else if ($_SESSION['userType']=="author") { ?>
 				[<a href="blogList.php">Blog List</a>]
 			<?php } ?>
+			[<a href="../Controller/logout.php">Logout</a>]
 		</td>
 	</tr>
 	<tr height="300px">
