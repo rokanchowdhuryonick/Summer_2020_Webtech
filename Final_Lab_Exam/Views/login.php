@@ -2,7 +2,7 @@
 session_start();
 require_once '../DB/config.php';
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']==1) {
-	header('location: Views/dashboard.php');
+	header('location: ../Views/dashboard.php');
 	exit();
 }
 
@@ -25,14 +25,14 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']==1) {
 		?>
 	</center>
 	<br>
-<form action="../Controller/logCheck.php" method="post">
+<form action="../Controller/login.php" method="post">
 	<table width="50%" align="center">
 		<tr>
 			<td>
 				User Name:
 			</td>
 			<td>
-				<input type="text" name="username">
+				<input type="text" name="username" value="<?php if (isset($_COOKIE['username'])) echo $_COOKIE['username'];?>">
 			</td>
 		</tr>
 		<tr>
@@ -40,7 +40,13 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']==1) {
 				Password:
 			</td>
 			<td>
-				<input type="password" name="password">
+				<input type="password" name="password" value="<?php if (isset($_COOKIE['password'])) echo $_COOKIE['password'];?>">
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<input type="checkbox" name="save"> Remember me
 			</td>
 		</tr>
 		<tr>
