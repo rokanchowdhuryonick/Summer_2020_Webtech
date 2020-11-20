@@ -25,17 +25,12 @@ function stringCheck(val) {
 }
 
 function checkEveryChar(val) {
-	//var datas="";
 	for (var i = 0; i < val.length; i++) {
 		if (stringCheck(val[i])==true || val[i]=='.' || val[i]=='-' || val[i]==' ') {
 			continue;
 		}else{
 			return false;
 		}
-		 //datas+= val[i] + "<br>";
 	}
-
-	//document.getElementById('dump').innerHTML = datas;
-	
 	return true;
 }
